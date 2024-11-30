@@ -1,0 +1,91 @@
+﻿<Page x:Class="Constancias.Views.MainWindow"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Constancias.Views"
+      mc:Ignorable="d" 
+      Height="650" Width="850"
+      Title="MainWindow">
+
+    <Grid Height="650" Width="850">
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#EADDD9" Offset="0"/>
+                <GradientStop Color="#E9E7D7" Offset="0.5"/>
+                <GradientStop Color="#DFE2DD" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+
+        <StackPanel Orientation="Vertical" Height="650" Width="850">
+            <Grid Background="#3E5853" Height="50" Width="850">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="30"/>
+                </Grid.ColumnDefinitions>
+
+                <Label Content="Sistemas de constancias" VerticalAlignment="Center" Margin="8 0" 
+                       FontWeight="Bold" FontSize="20" Padding="0" Foreground="White"/>
+                <Button Click="ClickCheckAccount" Margin="2" Grid.Column="2" 
+                        Background="Transparent" BorderBrush="Transparent" Width="auto">
+                    <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="center" Margin="0 0 0 0" Width="auto">
+                        <StackPanel VerticalAlignment="Center" Orientation="Vertical" Margin="0 0 10 0" Width="auto">
+                            <Label x:Name="label_NameEmployee" Content="Account" FontWeight="Bold" FontSize="20" 
+                                   Padding="0" Width="auto" Foreground="White" />
+                            <Label x:Name="label_RolEmployee" Content="Rol" FontSize="15" Padding="0" Width="auto" 
+                                   Foreground="White" />
+                        </StackPanel>
+                    </StackPanel>
+                </Button>
+            </Grid>
+
+            <Grid Height="600">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="130"/>
+                    <ColumnDefinition Width="720"/>
+                </Grid.ColumnDefinitions>
+                <StackPanel Grid.Column="0" Orientation="Vertical" Background="#5AA897">
+                    <StackPanel Margin="10 20 10 5">
+                        <Border BorderBrush="Transparent" Background="#8BBAB0" Margin="0 0 0 5" Width="120">
+                            <Label x:Name="label_GlobalOptionCertificates" Padding="5" Visibility="Visible" d:Visibility="Visible">
+                                <Hyperlink Click="ClickShowManagementCertificates">
+                                    <Image HorizontalAlignment="Left" Height="30" Width="29" 
+                                           Margin="0 0 5 0" VerticalAlignment="Center"
+                                           Source="pack://application:,,,/Imagenes/IconoConstancia.png"/>
+                                    <Run Text="Constancias" BaselineAlignment="Center"/>
+                                </Hyperlink>
+                            </Label>
+                        </Border>
+                        <Border BorderBrush="Transparent" Background="#8BBAB0" Margin="0 0 0 5" Width="120">
+                            <Label x:Name="label_GlobalOptionProfessors" Padding="5" Visibility="Visible" d:Visibility="Visible">
+                                <Hyperlink Click="ClickShowManagementProfessorsFrame">
+                                    <Image HorizontalAlignment="Left" Height="30" Width="29" 
+                                       Margin="0 0 5 0" VerticalAlignment="Center"
+                                       Source="pack://application:,,,/Imagenes/IconProfesor.png"/>
+                                    <Run Text="Profesores" BaselineAlignment="Center"/>
+                                </Hyperlink>
+                            </Label>
+                        </Border>
+                    </StackPanel>
+                    <Border BorderBrush="Transparent" Background="#8BBAB0" Margin="0 370 0 5" Width="120">
+                        <Label x:Name="label_LogOut" Padding="5" Visibility="Visible" d:Visibility="Visible">
+                            <Hyperlink Click="ClickLogOut">
+                                <Image HorizontalAlignment="Left" Height="30" Width="29" 
+                                       Margin="0 0 5 0" VerticalAlignment="Center"
+                                       Source="pack://application:,,,/Imagenes/LogOut_icon.png"/>
+                                <Run Text="Salir" BaselineAlignment="Center"/>
+                            </Hyperlink>
+                        </Label>
+                    </Border>
+                </StackPanel>
+                <Grid Grid.Column="1">
+                    <Frame x:Name="innerFrameContainer" Width="720" Height="600"
+                           Background="#FFFFFF" NavigationUIVisibility="Hidden"/>
+                </Grid>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Page>

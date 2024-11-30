@@ -1,0 +1,54 @@
+﻿<Page x:Class="Constancias.Views.Administrative.ManageCertificates"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Constancias.Views.Administrative"
+      mc:Ignorable="d" 
+      Height="600" Width="700"
+      Title="ManageCertificates">
+
+    <StackPanel Background="White">
+        <Label Content="Historial de constancias" HorizontalAlignment="Left" VerticalAlignment="Top"
+               Margin="10 8" FontSize="20"/>
+        <Grid Margin="10 8" Height="500">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="550"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Border BorderThickness="0 0 1 0" BorderBrush="Black">
+                <DataGrid x:Name="dataGrid_Certificates" ItemsSource="{Binding retrievedCertificates}"  
+                          Grid.Column="0" Width="525" Height="450" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Tipo de constancia" Width="1.5*" Binding="{Binding Type}" />
+                        <DataGridTextColumn Header="Profesor" Width="*" Binding="{Binding Profesor.CompleteName}" />
+                        <DataGridTextColumn Header="Fecha emisión" Binding="{Binding DateEmited, StringFormat='dd/MM/yyyy'}" />
+                        <DataGridTemplateColumn Header="Detalles">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Click="ClicShowDetailsCertificate" BorderBrush="Transparent" Height="20" Width="20">
+                                        <Button.Background>
+                                            <ImageBrush ImageSource="/Imagenes/icon-search.png"/>
+                                        </Button.Background>
+                                    </Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Border>
+            <StackPanel Grid.Column="1">
+                <Border Margin="8 25 8 4" Padding="1" Background="#D9D9D9" BorderBrush="#D9D9D9" CornerRadius="10" Width="100">
+                    <Button Click="ClickRegistryNewCertificate" BorderBrush="Transparent" Background="Transparent">
+                        <TextBlock Text="Registrar constancia" TextWrapping="Wrap" TextAlignment="Center"/>
+                    </Button>
+                </Border>
+                <Border Margin="8 8 8 4" Padding="3" Background="#D9D9D9" BorderBrush="#D9D9D9" CornerRadius="10" Width="100">
+                    <Button Click="ClickRenewSignature" BorderBrush="Transparent" Background="Transparent">
+                        <TextBlock Text="Renovar firma" TextWrapping="Wrap" TextAlignment="Center"/>
+                    </Button>
+                </Border>
+            </StackPanel>
+        </Grid>
+    </StackPanel>
+</Page>

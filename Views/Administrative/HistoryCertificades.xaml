@@ -1,0 +1,42 @@
+﻿<Page x:Class="Constancias.Views.Administrative.HistoryCertificades"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Constancias.Views"
+      mc:Ignorable="d" 
+      Height="450" Width="800"
+      Title="HistoryCertificades">
+
+    <Grid Background="White">
+        <Rectangle HorizontalAlignment="Center" Height="79" VerticalAlignment="Top" Width="800" Fill="#3e5853"/>
+        <Label Content="Sistema de constancias" HorizontalAlignment="Left" Margin="26,15,0,0" VerticalAlignment="Top" FontSize="30" Foreground="White"/>
+        <StackPanel>
+            <Label Content="Historial de constancias" HorizontalAlignment="Left" Margin="26,84,0,0" VerticalAlignment="Top" FontSize="20"/>
+            <DataGrid x:Name="dataGrid_Certificates" ItemsSource="{Binding retrievedCertificates}" Width="500" Height="250" AutoGenerateColumns="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Tipo de constancia" Width="1.5*" Binding="{Binding Type}" />
+                    <DataGridTextColumn Header="Profesor" Width="*" Binding="{Binding Profesor.CompleteName}" />
+                    <DataGridTextColumn Header="Fecha emisión" Binding="{Binding DateEmited, StringFormat='dd/MM/yyyy'}" />
+                    <DataGridTemplateColumn Header="Detalles">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Click="ClicShowDetailsCertificate" BorderBrush="Transparent" Height="20" Width="20">
+                                    <Button.Background>
+                                        <ImageBrush ImageSource="/Imagenes/icon-search.png"/>
+                                    </Button.Background>
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Grid>
+                <Rectangle HorizontalAlignment="Center" Height="39" Margin="0,5,0,0" VerticalAlignment="Top" Width="136" Fill="#a3c5bc"
+                        RadiusX="10" RadiusY="10" MouseLeftButtonDown="Back_Click" Cursor="Hand"/>
+                <Label Content="Regresar" HorizontalAlignment="Center" Margin="0,5,0,0" VerticalAlignment="Top" FontSize="20" MouseLeftButtonDown="Back_Label_Click"
+                        Cursor="Hand"/>
+            </Grid>
+        </StackPanel>
+    </Grid>
+</Page>
