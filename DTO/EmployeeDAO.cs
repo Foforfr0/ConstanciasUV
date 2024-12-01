@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 
 namespace Constancias.DTO {
-    internal class EmployeeDAO {
+    public class EmployeeDAO {
         string stringConnection = DBConnection.getStringConnection ();
 
         public Employee LogIn (string email, string password) {

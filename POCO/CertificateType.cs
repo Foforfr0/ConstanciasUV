@@ -1,5 +1,5 @@
 ﻿namespace Constancias.POCO {
-    internal class CertificateType {
+    public class CertificateType {
         public int IdType {
             get; set;
         }

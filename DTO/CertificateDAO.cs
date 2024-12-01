@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 
 namespace Constancias.DTO {
-    internal class CertificateDAO {
+    public class CertificateDAO {
         private static string stringConnection = DBConnection.getStringConnection ();
 
         public static List<Certificate> GetCertificate () {
